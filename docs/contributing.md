@@ -17,8 +17,8 @@ package StandardScalaPlayground.Sections
 object ObjectName extends App {
 
   /** While Loop Basics */
-  // Some inline commentary
-  var x = 0
+    // Some inline commentary
+    var x = 0
 
 }
 
