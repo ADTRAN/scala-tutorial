@@ -1,0 +1,15 @@
+# sbt gitignore
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+.bsp/
+.attach_pid*
+
+# covers IntelliJ
+.idea/
