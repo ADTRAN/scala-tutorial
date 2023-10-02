@@ -27,6 +27,16 @@ object Options extends App {
     val check2 = some(2).map(x => x + 5).getOrElse("Nothing")
 
 
+  /** Using Match Case */
+    // Options are often dealt with using a match case:
+    def matcher(option: Option[String]) = {
+      option match {
+        case Some(value) => value
+        case None        => throw new Exception("Empty!")
+      }
+    }
+
+
 }
 
 
