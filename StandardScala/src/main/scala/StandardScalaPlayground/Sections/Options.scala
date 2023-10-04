@@ -37,6 +37,13 @@ object Options extends App {
     }
 
 
+  /** .contains */
+    // .contains allows you to check the value of an Option, and can handle the Option being None without error:
+    val option1: Option[String] = Some("One")
+    if (option1.contains("Two")) {
+      println("Match")
+    } else println("No match")
+
 }
 
 
