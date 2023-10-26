@@ -29,12 +29,12 @@ object TasksBasics extends App {
       Task.now(1)
       Task.pure(1)
 
-    /** Using >> or *> to chain Tasks */
-      // - If we don't care about the return value from a Task, and would like to run one Task immediately after another,
-      //   we can use >>, or *>
-      val chained: Task[Unit] = Task(print("Run first... ")) >> Task(println("Run next"))
-
-      // The above chain will return the value of the second Task.
+    /** Using >>, *>, or <* to chain Tasks */
+      // - Tasks can be chained together, and can then be treated as a single unit. The return value of the chain will
+      //   be determined by the operator that you use:
+      Task(1) <* Task(2)    // Executes 1, then 2, returns 1
+      Task(1) *> Task(2)    // Executes 1, then 2, returns 2
+      Task(1) >> Task(2)    // Executes 1, then 2, returns 2 (same as *>)
 
     /** Task.evalOnce( ) */
       // - This Task will be lazily evaluated once, and reuse that first result in all subsequent runs of the Task
