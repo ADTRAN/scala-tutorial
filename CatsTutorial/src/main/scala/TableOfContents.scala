@@ -30,8 +30,8 @@ object TableOfContents extends App {
   /**
    * 2. Cats Effect - [[https://typelevel.org/cats-effect/]]
    *
-   *  - Basics
-   *    [[CatsEffectTutorial.CatsEffectBasics]]
+   *  - IO Basics
+   *    [[CatsEffectTutorial.CatsEffectIOBasics]]
    *
    */
 }

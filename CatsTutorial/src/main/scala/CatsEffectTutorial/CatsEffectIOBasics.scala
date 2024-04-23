@@ -7,7 +7,7 @@ import java.util.concurrent.Executors
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
 
-object CatsEffectBasics extends App {
+object CatsEffectIOBasics extends App {
 
   /** Creating IO */
 

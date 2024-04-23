@@ -7,7 +7,7 @@ object BasicIntelliJ extends App {
     1. Running an App - Click the green arrow next to the App
     2. Go to definition - Crtl + Click will take you to the definition/signature of whatever you're clicking --> [[VarsAndVals]]
     3. Mass comment - highlight + Crtl + / will mass comment/uncomment
-    4. Rebuild with dependencies - After adding a dependency to build.sbt, you can click the "sbt" tab on the right column of the IDE, and click the cyclical arrow icon to refresh your dependencies. These can be viewed on the left hand column under External Libraries
+    4. Rebuild with dependencies - After adding a dependency to build.sbt, you can click the "sbt" (hexagon) tab on the right column of the IDE, and click the cyclical arrow icon to refresh your dependencies. These can be viewed on the left hand column (if you have the "Project" tab open) under External Libraries
     5. Optimize imports - Ctrl + Alt + o will optimize your imports (remove unused, group, etc.)
     6. Tabs - You can view more tabs at once (default is an annoying scroll bar) by clicking the three dots on the tab bar -> Configure Editor Tabs -> uncheck "Show tabs in one row", and increase the "Tab limit"
     7. Scaladocs - To generate a scaladoc above your method or class, enter / + ** and press enter. To generate a multiline comment, type / + ** + Space
