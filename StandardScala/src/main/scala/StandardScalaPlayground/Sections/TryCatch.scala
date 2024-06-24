@@ -14,6 +14,17 @@ object TryCatch extends App {
     }
 
 
+  /** Finally */
+    // - While try and catch are frequently used alone, there is also a "finally" keyword, which will execute
+    //   regardless of whether there was an exception thrown:
+    try {
+      1 / 0
+    } catch {
+      case _ => println("We divided by zero!")
+    } finally {
+      println("This will always be printed, even if there is an exception")
+    }
+
   /** Multiple Exception Types */
     // An example with custom exception types:
     class TooSmall(message: String) extends Exception(message)

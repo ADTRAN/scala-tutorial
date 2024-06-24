@@ -74,6 +74,17 @@ object Functions extends App {
     }
 
     anotherImplicitFunction()(twoImplicit)
+
+
+  /** Infix Notation */
+    // In scala, methods can be called without explicitly using a ".":
+    List(1, 2, 3) map (x => x + 1) // (2, 3, 4)
+
+    // One common use of this would be mathematical operators:
+    println(s"1 + 2 = ${1 + 2} is the same as 1.+(2) = ${1.+(2)}")
+
+    // In practice, it's normal to use the standard dot notation exclusively, except for special cases like math
+    // operators, where everyone uses infix notation without thinking about it
 }
 
 

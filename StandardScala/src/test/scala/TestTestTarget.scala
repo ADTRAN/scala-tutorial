@@ -8,7 +8,7 @@ class TestTestTarget extends AnyWordSpec with MockFactory {
     // - Unit test files should be named after whatever they are testing, with a "Test" prepended, e.g. MyObject, TestMyObject
     // - This entire suite can be run by using `sbt test` at the top level of the project
     // - You can also only run this file, using `sbt "testOnly TestTestTarget"`
-    // - Individual test can be run using the green play buttons next to the test names in IntelliJ
+    // - Individual tests can be run using the green play buttons next to the test names in IntelliJ
 
 
   /** When, Should, In */
