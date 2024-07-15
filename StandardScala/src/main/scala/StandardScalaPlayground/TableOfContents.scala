@@ -74,6 +74,7 @@ object TableOfContents extends App {
   /**
    * 8. Concurrent Programming
    * [[Sections.Futures]] Future( )
+   * [[Sections.Threads]] Thread
    */
 
 

@@ -33,7 +33,7 @@ object VarsAndVals extends App {
   /** Lazy vals */
     // Lazy vals are only evaluated the first time they are referenced
     // This is useful if an operation takes a lot of time, but may not be used in all cases
-    lazy val someLongOperation = Thread.sleep(1000000)
+    lazy val someLongOperation = Thread.sleep(1000000)  // This will never execute, because it's never referenced
 
 
   /** Implicit vals are another type of val, and will be covered in the [[Functions]] section */

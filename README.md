@@ -60,6 +60,7 @@ Scala examples and exercises, in source code.
 
 8. Concurrent Programming
     - [Futures](StandardScala/src/main/scala/StandardScalaPlayground/Sections/Futures.scala)
+    - [Threads](StandardScala/src/main/scala/StandardScalaPlayground/Sections/Threads.scala)
 
 9. Testing
     - [Unit testing](StandardScala/src/main/scala/StandardScalaPlayground/Sections/TestTarget.scala)
