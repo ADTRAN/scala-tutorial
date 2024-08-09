@@ -29,6 +29,7 @@ Scala examples and exercises, in source code.
    - [Traits](StandardScala/src/main/scala/StandardScalaPlayground/Sections/Traits.scala)
    - [.apply( )](StandardScala/src/main/scala/StandardScalaPlayground/Sections/Apply.scala)
    - [Companion Objects](StandardScala/src/main/scala/StandardScalaPlayground/Sections/CompanionObjects.scala)
+   - [Generics and Type Classes](StandardScala/src/main/scala/StandardScalaPlayground/Sections/TypeClasses.scala)
 
 4. Data Structures/Collections
    - [Tuples](StandardScala/src/main/scala/StandardScalaPlayground/Sections/Tuples.scala)
