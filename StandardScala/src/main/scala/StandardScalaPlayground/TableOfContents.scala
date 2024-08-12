@@ -29,6 +29,7 @@ object TableOfContents extends App {
    * [[Sections.Apply]] .apply( )
    * [[Sections.CompanionObjects]] The Companion Object pattern
    * [[Sections.TypeClasses]] Generics and Type Classes
+   * [[Sections.EnrichingClasses]] Enriching Classes
    */
 
 
