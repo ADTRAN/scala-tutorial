@@ -18,6 +18,7 @@ object EnrichingClasses extends App {
     println(s".sqrt was: ${12.sqrt}")
 
     // As noted above, the implicit class can only take one parameter, which is normal when dealing with implicits.
+
     // Also note that often, the enriching implicit class will be defined as follows, extending AnyVal:
     implicit class RichString(val originalValue: String) extends AnyVal {
      // ...
