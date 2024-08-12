@@ -85,6 +85,21 @@ object Functions extends App {
 
     // In practice, it's normal to use the standard dot notation exclusively, except for special cases like math
     // operators, where everyone uses infix notation without thinking about it
+
+
+  /** Method Overloading */
+    // In scala, methods can be overloaded, meaning the same method name can be given different parameters and behavior:
+    def overload(value: Int): Unit = {
+      println(value)
+    }
+
+    def overload(value: String): Unit = {
+      println(value)
+    }
+
+    overload(100)
+    overload("100 String")
+
 }
 
 

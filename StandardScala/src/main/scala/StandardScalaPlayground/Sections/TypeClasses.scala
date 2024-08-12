@@ -70,6 +70,8 @@ object TypeClasses extends App {
     Printable.format(List("Hello world", "Hello universe"))
 
 
+    // For another alternative to method overloading, see the Magnet Pattern
+
 }
 
 
