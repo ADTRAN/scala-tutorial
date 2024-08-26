@@ -13,13 +13,19 @@ object Types extends App {
     val listOfStrings: List[String] = List.empty
     val listOfListsOfStrings: List[List[String]] = List.empty
     val tupleOfIntString: Tuple2[Int, String] = (1, "val")
+    val optionInt: Option[Int] = Some(1)
 
 
   /** Types in Methods */
     // The return type of a function is placed after the arguments in the signature
     // Take one Int, return a String:
-    def someFunction (arg1: Int): String = {
+    def someFunction(arg1: Int): String = {
       arg1.toString
+    }
+
+    // When a function only performs side effects without returning a value, it will return the Unit value:
+    def someFunction2(arg1: Int): Unit = {
+      println("Side effects like printing return nothing - Unit")
     }
 
 
@@ -30,6 +36,44 @@ object Types extends App {
     // However, there are cases where this will not be possible. Leaving off types also makes code harder to comprehend.
     // Therefore, it's good practice to explicitly specify your types, especially in production code that others will need
     // to understand later.
+
+
+  /** Generic Types */
+    // Specifying a generic type - usually represented by a capital letter, but this is arbitrary - allows functions or
+    // classes to have types specified on a per-instance (class) or per-call (function) basis:
+    def function1[A](value: A) = {
+      println(value)
+    }
+    function1[Int](123)
+    function1[String]("234")
+    function1(false)  // Notice that the compiler can infer A, and doesn't need the full function1[Boolean](false). It's good to be explicit though
+
+    def function2[A, B](val1: A, val2: B) = {
+      // Do something with your custom/variable-typed values
+    }
+    function2[Int, String](123, "234")
+
+
+  /** Supertypes and Subtypes */
+    // The most common method for making a basic type to group subclasses would be declaring a new class or trait,
+    // and extending the superclass using the 'extends' keyword:
+    class Animal
+    class Dog extends Animal
+    class Cat extends Animal
+    class Rat extends Animal
+
+    trait Building
+    class House extends Building
+    class School extends Building
+    class Skyscraper extends Building
+
+    // Subtypes satisfy a function or class's requirement for their supertype, for instance:
+    def adopt(animal: Animal) = {}
+    adopt(new Cat)
+
+    /** [[Classes]] and [[Traits]] are covered in their own sections later, but for now, just know that you will see
+        both used to group subtypes
+     */
 
 }
 
@@ -43,6 +87,8 @@ object TypesExercises extends App {
   // 3. Initialize a function that takes a String, a Boolean, and an Int, and returns an Int
 
   // 4. Initialize a List of Tuples made of Int, List of Ints, String
+
+  // 5. Create a function which takes a generic value, and prints it
 
 }
 
@@ -62,9 +108,11 @@ object TypesExercises extends App {
 //      0
 //    }
 
-//4.  val someList: List[(Int, List[Int], String)] = List.empty
+// 4. val someList: List[(Int, List[Int], String)] = List.empty
 //    Or
 //    val someList: List[Tuple3[Int, List[Int], String]]
 //    Or
 //    val someList: List[Tuple3[Int, List[Int], String]] = List((1, List(1), "1"))
 //    etc.
+
+// 5. def generic[I](value: I) = println(value)

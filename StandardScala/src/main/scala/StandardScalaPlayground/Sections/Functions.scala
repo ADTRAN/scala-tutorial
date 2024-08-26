@@ -100,6 +100,28 @@ object Functions extends App {
     overload(100)
     overload("100 String")
 
+
+  /** Higher-order Functions */
+    // Functions as Arguments
+    // - Functions can be passed as parameters to other functions, using the following notation:
+    def addTwo(one: Int, two: Int): Int = one + two
+
+    def doubleOperation(operation: (Int, Int) => Int): Int = {
+      operation(1, 2) * 2
+    }
+
+    doubleOperation(addTwo)
+
+    // Notice above that the parameter list of the first function is given in a Tuple. If the function had one parameter,
+    // it would just be Int => Int, for instance
+
+    // Functions as Return Values
+    // - Likewise, we can return functions from methods, for example:
+    def returnOperation(): (Int, Int) => Int = {
+      addTwo
+    }
+
+
 }
 
 
@@ -118,6 +140,9 @@ object FunctionsExercises extends App {
 
   // 6. Create a method that takes a String and an Int, and returns a String.
   //    Give the string a default value. Set a variable equal to a call of the function that doesn't override the default value.
+
+  // 7. Create a method which takes a function which has one integer for a parameter, and returns a List of integers.
+  //    Make the function return a function which takes a List of strings, and returns a Unit
 
 }
 
@@ -145,9 +170,16 @@ object FunctionsExercises extends App {
 //    println(result)
 
 // 6.
-// def function1 (arg1: String = "Hello", arg2: Int): String = {
-//    arg1
+//  def function1 (arg1: String = "Hello", arg2: Int): String = {
+//     arg1
+//   }
+//   val defaultResult = function1(arg2 = 0)
+
+// 7.
+//  def function(operation: Int => List[Int]): List[String] => Unit = {
+//    val result: List[Int] = operation(2)
+//    // Do whatever with the result...
+//
+//    def returnFunction(list: List[String]): Unit = list.foreach(println)
+//    returnFunction
 //  }
-//  val defaultResult = function1(arg2 = 0)
-
-
