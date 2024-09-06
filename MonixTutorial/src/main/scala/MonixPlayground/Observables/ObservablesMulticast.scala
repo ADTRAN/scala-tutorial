@@ -25,7 +25,7 @@ object ObservablesMulticast extends App {
     val sub2 = hot.foreach(x => println(s"subscriber-2: $x"))
 
     // .connect begins emitting elements to subscribers:
-    hot.connect
+    hot.connect()
 
     Thread.sleep(3000)    // give example time to finish
 
@@ -40,7 +40,7 @@ object ObservablesMulticast extends App {
 
       val stream: ConnectableObservable[Long] = Observable.interval(100.milliseconds).multicast(Pipe.replay[Long])
 
-      stream.connect              // Begin emitting events
+      stream.connect()      // Begin emitting events
       Thread.sleep(2000)    // Sleep for 2 seconds before subscribing
 
       // Subscribe to the hot Observable:
@@ -56,7 +56,7 @@ object ObservablesMulticast extends App {
 
       val stream2: ConnectableObservable[Long] = Observable.interval(100.milliseconds).multicast(Pipe.publish[Long])
 
-      stream2.connect             // Begin emitting events
+      stream2.connect()     // Begin emitting events
       Thread.sleep(2000)    // Sleep for 2 seconds before subscribing
 
       // Subscribe to the hot Observable:

@@ -20,7 +20,7 @@ object ObservableNowPure extends App {
     // Above, we wait for three seconds, then print, all without consuming the Observable, due to the eager evaluation.
 
     // As a result, when we do consume the Observable, the result will be instantaneous:
-    result.subscribe
+    result.subscribe()
 
 
   /** For further reading on the Task equivalent, see [[MonixPlayground.Tasks.TaskNowPure]] */

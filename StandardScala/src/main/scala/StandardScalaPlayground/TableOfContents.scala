@@ -28,7 +28,7 @@ object TableOfContents extends App {
    * [[Sections.Traits]] trait
    * [[Sections.Apply]] .apply( )
    * [[Sections.CompanionObjects]] The Companion Object pattern
-   * [[Sections.TypeClasses]] Generics and Type Classes
+   * [[Sections.TypeClasses]] Generics (Parametric Polymorphism) and Type Classes
    * [[Sections.EnrichingClasses]] Enriching Classes
    */
 

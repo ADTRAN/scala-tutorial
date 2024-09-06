@@ -7,10 +7,10 @@ object Solution_ExercisePrintableLibrary {
   }
 
   object PrintableInstances {
-    implicit val printableString = new Printable[String] {
+    implicit val printableString: Printable[String] = new Printable[String] {
       def format(s: String): String = s
     }
-    implicit val printableInt = new Printable[Int] {
+    implicit val printableInt: Printable[Int] = new Printable[Int] {
       def format(i: Int): String = i.toString
     }
   }

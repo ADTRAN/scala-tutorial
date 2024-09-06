@@ -44,7 +44,7 @@ object ObservableFlatMap extends App {
 
     val mapped: Observable[Unit] = Observable(1, 2, 3).map(x => println(x * 100))
       .delayExecution(3.seconds)   // delay execution so examples don't step over each other
-    mapped.subscribe
+    mapped.subscribe()
 
 
 

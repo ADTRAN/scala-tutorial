@@ -70,7 +70,7 @@ object ObservablesParallel extends App {
     val generator = Observable(("first", 5), ("second", 1), ("third", 1), ("fourth", 1), ("fifth", 1))
       .mapParallelUnordered(parallelism = 2)(waiting)
 
-    generator.subscribe
+    generator.subscribe()
 
     // Above, we map the "waiting" function to each element in the Observable, with a parallelism of 2.
     // If we were synchronously processing, we would have to wait 5 seconds before we were able to process

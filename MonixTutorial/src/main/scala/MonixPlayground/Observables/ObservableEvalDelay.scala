@@ -19,7 +19,7 @@ object ObservableEvalDelay extends App {
     // Above, we print immediately, because no evaluation took place.
 
     // We instead lazily evaluate when the Observable is consumed:
-    result.subscribe
+    result.subscribe()
 
 
   /** For further reading on the Task equivalent, see [[MonixPlayground.Tasks.TaskEvalDelay]] */

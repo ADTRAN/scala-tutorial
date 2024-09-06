@@ -103,7 +103,10 @@ object ObservablesBasics extends App {
     /** Observable.merge */
       // - .merge combines one level of nested Observables into one Observable, similar to how .flatten combines one level
       //   of a nested collection in regular scala:
-      val oneObservable: Observable[Int] = Observable(Observable(1, 2, 3)).merge
+      val oneObservable: Observable[Int] = Observable.merge(
+        Observable(1, 2, 3),
+        Observable(4, 5, 6)
+      )
 
     /** Observable.fromTask( ) */
       // - Tasks can be lifted out of the Task context and into the Observable context with .fromTask( ):
@@ -134,7 +137,7 @@ object ObservablesBasics extends App {
       //   which causes immediate evaluation, as mentioned above.
       // - .subscribe is typically called at the end of a program's logic, and it begins evaluating each element in the Observable:
       val stream = Observable(1, 2, 3).map(x => println(s"Running $x"))
-      stream.subscribe
+      stream.subscribe()
 
     /** .foreach( ) */
       // .foreach( ) subscribes to the stream, along with applying the specified function to each element:
@@ -225,7 +228,7 @@ object ObservablesBasics extends App {
       val me = Observable(1, 2, 3).mapEval { x =>
         Task(println(s"MapEval says: ${x * 2}"))
       }
-      me.subscribe
+      me.subscribe()
 
 
   /** Turning Finite Observables Directly Into Tasks */

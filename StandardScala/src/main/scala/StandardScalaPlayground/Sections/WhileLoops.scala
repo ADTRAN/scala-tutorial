@@ -28,7 +28,7 @@ object WhileLoops extends App {
     val start = DateTime.now()
     loop.breakable {
       while (true) {
-        if ((start to DateTime.now).millis > 5000) loop.break   // if 5 seconds have passed, break
+        if ((start to DateTime.now()).millis > 5000) loop.break   // if 5 seconds have passed, break
       }
     }
     println("Break-ed!")

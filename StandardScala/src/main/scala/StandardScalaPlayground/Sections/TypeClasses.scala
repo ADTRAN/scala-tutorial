@@ -2,7 +2,7 @@ package StandardScalaPlayground.Sections
 
 object TypeClasses extends App {
 
-  /** Intro to Generics */
+  /** Intro to Generics (Parametric Polymorphism) */
     // - In scala, generic types are stand-ins for types which are specified only when the generic class is instantiated,
     //   or the generic method is used, etc.
     // - Almost always, generics will be represented by a single capital letter - A, B, I, etc. However, you can
@@ -71,6 +71,47 @@ object TypeClasses extends App {
 
 
     // For another alternative to method overloading, see the Magnet Pattern
+
+
+  /** Variance */
+    /* - Variance in scala defines how parameterized types (like List[A], Option[A], or Function[A, B]) relate to their
+         subtypes. It determines whether instances of generic types can substitute for one another
+       - There are three kinds of variance:
+         - Covariant (+) - A type with a subtype relationship maintains that relationship with its container type. For
+           example, if Dog is a subtype of Animal, then List[Dog] is a subtype of List[Animal]
+         - Contravariant (-) - A type with a subtype relationship reverses that relationship in its container. For
+           example, if Animal is a supertype of Dog, then Printer[Animal] is a subtype of Printer[Dog]
+         - Invariant (default, no symbol) - A parameterized type has no relationship with other types, even if their
+           parameters do. For example, Container[Dog] and Container[Animal] are completely unrelated, regardless of the
+           relationship between Dog and Animal
+     */
+
+    // Below are examples of each type of variance:
+    class Animal
+    class Dog extends Animal
+
+    // Covariance - List is covariant in A (+A), allowing substitution of List[Dog] for List[Animal] (subtype for supertype)
+      val dogs: List[Dog] = List(new Dog)
+      val animals: List[Animal] = dogs // Works due to covariance
+
+    // You'll recognize that many default types in scala are covariant - List, Option, Vector - all of these accept a
+    // subtype in place of a supertype
+
+
+    // Contravariance - Printer is contravariant in A (-A), meaning Printer[Animal] can print Dog (supertype for subtype)
+      class Printer[-A] {
+        def print(value: A): Unit = println(value)
+      }
+
+      val animalPrinter: Printer[Animal] = new Printer[Animal]
+      val dogPrinter: Printer[Dog] = animalPrinter // Works due to contravariance
+
+
+    // Invariance - Container is invariant in A (no +/-), no relationship between Container[Dog] and Container[Animal]
+      class Container[A](value: A)
+      val dogContainer: Container[Dog] = new Container(new Dog)
+      // val animalContainer: Container[Animal] = dogContainer  // Error - Container is invariant, so it does not matter
+      //                                                                   that Dog is a subtype of Animal
 
 }
 
