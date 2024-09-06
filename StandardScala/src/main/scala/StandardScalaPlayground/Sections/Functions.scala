@@ -101,6 +101,29 @@ object Functions extends App {
     overload("100 String")
 
 
+  /** Partial Functions */
+    // - Partial functions allow a function to be defined for certain cases only, rather than an exhaustive match
+    // - Instead of defining them with `def`, they are `val`s which extend the PartialFunction Trait
+    val intsAndBools: PartialFunction[Any, Unit] = {  // Here, Any is the type of the argument, and Unit is the return type of the partial function
+      case x: Int => println(s"Found an integer! $x")
+      case x: Boolean => println(s"Found a boolean! $x")
+    }
+
+    // .isDefinedAt( ) can then be used as a guard to check if the partial function is defined at a given value:
+    val myValue = true
+    if (intsAndBools.isDefinedAt(myValue)) {
+      intsAndBools(myValue)
+    } else {
+      println("Input not handled in partial function!")
+    }
+
+    // Partial functions can also take multiple argument values, using a Tuple:
+    val multipleArguments: PartialFunction[(Int, Int), Unit] = {
+      case (a, b) if a + b > 10 => println(a + b)
+    }
+    multipleArguments(10, 1)
+
+
   /** Higher-order Functions */
     // Functions as Arguments
     // - Functions can be passed as parameters to other functions, using the following notation:
@@ -121,6 +144,27 @@ object Functions extends App {
       addTwo
     }
 
+    // The returned function can then be passed into another higher-order function, or used directly via a second
+    // argument list:
+    println(returnOperation()(1000, 2000)) // passing 1000, 2000 into the function returned by returnOperation
+
+
+  /** Curried Functions */
+    // - A curried function, instead of taking all arguments together in one list, returns a series of functions that
+    //   each take sets of arguments:
+    def curriedFunction(a: Int, b: Int)(c: Int)(d: String) = {
+      if (a + b + c > 20) {
+        println(d)
+      } else println("Not greater than 20")
+    }
+
+    val firstStage = curriedFunction(5, 10) _   // a and b
+    // Above, the underscore is required to tell the compiler that the function is only being partially applied
+    val secondStage = firstStage(15)            // c
+    secondStage("Greater than 20!")             // d
+
+    // Curried functions are useful if a function needs to be completed in stages, because its argument values are not
+    // all available at one time
 
 }
 
@@ -141,7 +185,9 @@ object FunctionsExercises extends App {
   // 6. Create a method that takes a String and an Int, and returns a String.
   //    Give the string a default value. Set a variable equal to a call of the function that doesn't override the default value.
 
-  // 7. Create a method which takes a function which has one integer for a parameter, and returns a List of integers.
+  // 7. Define a partial function that handles Strings longer than 8 characters, and prints them backward
+
+  // 8. Create a method which takes a function which has one integer for a parameter, and returns a List of integers.
   //    Make the function return a function which takes a List of strings, and returns a Unit
 
 }
@@ -176,6 +222,13 @@ object FunctionsExercises extends App {
 //   val defaultResult = function1(arg2 = 0)
 
 // 7.
+//  val backwards: PartialFunction[String, Unit] = {
+//    case s if s.length > 8 => println(s.reverse)
+//  }
+//
+//  backwards("some very long palindrome would be cool")
+
+// 8.
 //  def function(operation: Int => List[Int]): List[String] => Unit = {
 //    val result: List[Int] = operation(2)
 //    // Do whatever with the result...
